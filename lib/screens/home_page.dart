@@ -1,6 +1,8 @@
 import 'package:dawaah/const.dart';
+import 'package:dawaah/widgets/custom_input_widgets.dart';
 import 'package:flutter/material.dart';
 
+// Perfect Muslim
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -35,65 +37,58 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: Padding(
+      body: _mainView(),
+      bottomNavigationBar: ElevatedButton(
+        child: const Text("data"),
+        onPressed: () {},
+      ),
+    );
+  }
+
+  Widget _mainView() {
+    return SingleChildScrollView(
+      child: Padding(
         padding: screenPadding,
         child: Column(
           children: [
             verticalSpaceMd40,
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Zakat on Wealth"),
-                    Text("Zakat-al-maal"),
-                  ],
-                ),
-                _tresholdView(),
-              ],
-            ),
+            _pageTitleView(),
             verticalSpaceMd40,
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black,
-                ),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(20),
-                ),
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    padding: screenPadding.copyWith(top: 10, bottom: 10),
-                    decoration: const BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(20),
-                      ),
-                    ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Hello"),
-                        Icon(Icons.add),
-                      ],
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none),
-                  ),
-                ],
-              ),
-            )
+            CustomInputField(
+              hintText: "Value of Gold in BDT",
+            ),
+            CustomInputField(
+              hintText: "Value of Silver in BDT",
+            ),
+            CustomInputField(
+              hintText: "Cash on Hands",
+            ),
+            CustomInputField(
+              hintText: "Cash in Bank Account",
+            ),
+            CustomInputField(
+              hintText: "Value of Share , Stock etc",
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Row _pageTitleView() {
+    return const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Zakat on Wealth"),
+                  Text("Zakat-al-maal"),
+                ],
+              ),
+              _tresholdView(),
+            ],
+          );
   }
 }
 
