@@ -12,15 +12,20 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         // backgroundColor: Colors.red,
         leadingWidth: 200,
-        leading: const Padding(
+        leading: Padding(
           padding: screenPadding,
-          child: Row(
-            children: [
-              Icon(Icons.arrow_back_ios),
-              Expanded(
-                child: Text("Back"),
-              ),
-            ],
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Row(
+              children: [
+                Icon(Icons.arrow_back_ios),
+                Expanded(
+                  child: Text("Back"),
+                ),
+              ],
+            ),
           ),
         ),
         actions: [
@@ -38,9 +43,27 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: _mainView(),
-      bottomNavigationBar: ElevatedButton(
-        child: const Text("data"),
-        onPressed: () {},
+      bottomNavigationBar: Container(
+        height: 70,
+        padding: const EdgeInsets.only(top: 10),
+        margin: const EdgeInsets.only(
+          bottom: 10,
+        ),
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(color: Colors.grey),
+          ),
+        ),
+        // color: Colors.greenAccent,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            elevation: 5,
+            backgroundColor: Colors.grey,
+          ),
+          child: const Text("Calculate Zakat"),
+          onPressed: () {},
+        ),
       ),
     );
   }
@@ -50,10 +73,12 @@ class HomePage extends StatelessWidget {
       child: Padding(
         padding: screenPadding,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpaceMd40,
             _pageTitleView(),
             verticalSpaceMd40,
+            _infoText("Your Assets"),
             CustomInputField(
               hintText: "Value of Gold in BDT",
             ),
@@ -67,7 +92,17 @@ class HomePage extends StatelessWidget {
               hintText: "Cash in Bank Account",
             ),
             CustomInputField(
-              hintText: "Value of Share , Stock etc",
+              hintText: "Value of Share,Stock,Others",
+            ),
+            _infoText("Your Expenses/Liability"),
+            CustomInputField(
+              hintText: "Owed Amount",
+            ),
+            CustomInputField(
+              hintText: "Expense Amount",
+            ),
+            CustomInputField(
+              hintText: "Others",
             ),
           ],
         ),
@@ -75,20 +110,33 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Container _infoText(String text) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+    );
+  }
+
   Row _pageTitleView() {
     return const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Zakat on Wealth"),
-                  Text("Zakat-al-maal"),
-                ],
-              ),
-              _tresholdView(),
-            ],
-          );
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Zakat on Wealth"),
+            Text("Zakat-al-maal"),
+          ],
+        ),
+        _tresholdView(),
+      ],
+    );
   }
 }
 
