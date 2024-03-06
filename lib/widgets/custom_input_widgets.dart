@@ -49,11 +49,12 @@ class _CustomInputFieldState extends State<CustomInputField> {
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: TextField(
               keyboardType: TextInputType.number,
-              textInputAction: TextInputAction.next,
+              // textInputAction: TextInputAction.next,
               decoration: InputDecoration(
-                  hintText: widget.hintText,
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none),
+                hintText: widget.hintText,
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+              ),
             ),
           ),
         ],

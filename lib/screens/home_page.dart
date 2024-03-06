@@ -1,13 +1,14 @@
 import 'package:dawaah/const.dart';
 import 'package:dawaah/widgets/custom_input_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Perfect Muslim
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: Colors.red,
