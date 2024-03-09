@@ -1,8 +1,8 @@
-import 'package:dawaah/screens/home_page.dart';
+import 'package:dawaah/screens/zakat_calculator_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() => runApp(ProviderScope(child: const MyApp()));
+void main() => runApp(const ProviderScope(child: MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primary: Colors.black,
         // background: Colors.amber,
       )),
-      home: const HomePage(),
+      home: const ProviderScope(child: ZakatCalucatorScreen()),
     );
   }
 }

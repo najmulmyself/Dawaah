@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Perfect Muslim
-class HomePage extends ConsumerWidget {
-  const HomePage({super.key});
+class ZakatCalucatorScreen extends ConsumerWidget {
+  const ZakatCalucatorScreen({super.key});
 
   @override
-  Widget build(BuildContext context, ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: Colors.red,
@@ -82,6 +83,9 @@ class HomePage extends ConsumerWidget {
             _infoText("Your Assets"),
             CustomInputField(
               hintText: "Value of Gold in BDT",
+              onChange: (value) {
+   
+  },
             ),
             CustomInputField(
               hintText: "Value of Silver in BDT",

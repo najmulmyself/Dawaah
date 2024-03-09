@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class CustomInputField extends StatefulWidget {
   CustomInputField({
     required this.hintText,
+    required this.onChange,
     super.key,
   });
 
   String hintText;
+  Function(double) onChange;
 
   @override
   State<CustomInputField> createState() => _CustomInputFieldState();
