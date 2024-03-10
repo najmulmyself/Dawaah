@@ -68,9 +68,9 @@ class ZakatCalucatorScreen extends ConsumerWidget {
         ),
       ),
     );
-  }
 
-  Widget _mainView() {
+
+      Widget _mainView() {
     return SingleChildScrollView(
       child: Padding(
         padding: screenPadding,
@@ -185,3 +185,6 @@ class _tresholdView extends StatelessWidget {
     );
   }
 }
+  }
+
+
